@@ -215,7 +215,7 @@ Circuit for batching Groth16 proofs}
 
 \num\newcommand{\enc1}[1]{\ensuremath{\left[#1\right]_1}\xspace}
 \num\newcommand{\enc2}[1]{\ensuremath{\left[#1\right]_2}\xspace}
-\num\newcommand{\enc3}[1]{\ensuremath{\left[#1\right]_T}\xspace}
+\num\newcommand{\enc3}[1]{\ensuremath{\left[#1\right]_t}\xspace}
 \newcommand{\gen}{\ensuremath{\mathsf{Gen}}\xspace}
 \newcommand{\prv}{\ensuremath{\mathrm{P}}\xspace}
 \newcommand{\simprv}{\ensuremath{\mathrm{P^{sim}}}\xspace}
@@ -275,6 +275,10 @@ For reference, recall the \groth verification equation.
 
 \[e(\pi_A,\pi_B) =\e(\pi_C,\enc2{\delta})\cdot \PI\]
 Where \PI is an element in \Gt derived by the verifier from the public input.
+Specificially,
+\[\PI=\enc3{\alpha\beta+ K_0+\sum_{i=1}^\ell a_i\cdot K_i}\]
+where $(a_1,\ldots,a_n)$ is the public input, and $K_i = \beta u_i(x) + \alpha  v_i (x) + w_i(x)$.
+
 We move the second pairing to the LHS to receive
 \[e(\pi_A,\pi_B) \cdot \e(-\pi_C,\enc2{\delta})=  \PI\]
 
@@ -286,9 +290,9 @@ $S\defeq \sett{\pia,\pib,\pic}{i\in [m]}$
 
 The public inputs of the circuit are 
 \begin{enumerate}
- \item $P$ - the alleged pedersen hash of all proof elements
- \item $F$ - the alleged correct randomized combination of pairings of proof elements
- \item  and $r=\mathsf{Blake(P)}$ interperted as an element of \F.
+ \item $P$ - the alleged pedersen hash of all proof elements.
+ \item $F$ - the alleged correct randomized combination of pairings of proof elements.
+ \item  $r=\mathsf{Blake(P)}$, interperted as an element of \F.
 
 \end{enumerate}
 
