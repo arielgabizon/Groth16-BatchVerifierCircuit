@@ -283,7 +283,7 @@ We move the second pairing to the LHS to receive
 \[e(\pi_A,\pi_B) \cdot \e(-\pi_C,\enc2{\delta})=  \PI\]
 
 
-We use \ML to denote a miller loop and \FE to denote a multiexponetiation
+We use \ML to denote a miller loop and \FE to denote the final exponetiation.
 
 The private input for the circuit is a set of $m$ \groth proofs
 $S\defeq \sett{\pia,\pib,\pic}{i\in [m]}$
@@ -296,8 +296,7 @@ The public inputs of the circuit are
 
 \end{enumerate}
 
-The verifier computes $r$ from $P$ outside of the circuit,
-and checks outside of the circuit that
+The verifier has the  corresponding $m$  public input elements $\PI_1,\ldots,\PI_m$, and checks outside of the circuit that
 \[F= \prod_{i\in m} \PI_i ^{r^i}\]
 
 
