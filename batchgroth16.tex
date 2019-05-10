@@ -284,7 +284,7 @@ We move the second pairing to the LHS to receive
 
 
 We use \ML to denote a miller loop and \FE to denote the final exponetiation.
-
+We assume the verifer and prover both know the set of public inputs and thus the derived values \sett{\PI_i}{i\in [m]}.
 The private input for the circuit is a set of $m$ \groth proofs
 $S\defeq \sett{\pia,\pib,\pic}{i\in [m]}$
 
@@ -292,7 +292,7 @@ The public inputs of the circuit are
 \begin{enumerate}
  \item $P$ - the alleged pedersen hash of all proof elements.
  \item $F$ - the alleged correct randomized combination of pairings of proof elements.
- \item  $r=\mathsf{Blake(P)}$, interperted as an element of \F.
+ \item  $r=\mathsf{Blake(P,(\PI_1,\ldots,\PI_m))}$, interperted as an element of \F.
 
 \end{enumerate}
 
@@ -314,7 +314,11 @@ The circut computes
  \item $P=\ped(S)$.
  \end{enumerate}
 
- 
+ \begin{remark}
+  It is possible to not do \FE inside the circuit and have the verifier do it outside;
+  however since it's only once per batch it might be better to leave it in the circuit.
+ \end{remark}
+
  \bibliographystyle{alpha}
 \bibliography{References}
 \end{document}
