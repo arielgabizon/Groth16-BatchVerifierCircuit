@@ -126,7 +126,8 @@
 \title{%
 Circuit for batching Groth16 proofs}
 \date{\today}
-\author{}
+\author{Ariel Gabizon\\  \tt{Protocol Labs}}
+
 \begin{document}
 \maketitle
  \mathchardef\mhyphen="2D
@@ -270,7 +271,7 @@ Circuit for batching Groth16 proofs}
 \newcommand{\pic}{\ensuremath{\mathsf{\pi_{C,i}}}\xspace}
 \newcommand{\ped}{\ensuremath{\mathsf{ped}}\xspace}
 \newcommand{\groth}{\ensuremath{\mathsf{Groth16}}\xspace}
-
+\newcommand{\blake}{\ensuremath{\mathsf{Blake}}\xspace}
 For reference, recall the \groth verification equation.
 
 \[e(\pi_A,\pi_B) =\e(\pi_C,\enc2{\delta})\cdot \PI\]
@@ -318,8 +319,10 @@ The circut computes
   It is possible to not do \FE inside the circuit and have the verifier do it outside;
   however since it's only once per batch it might be better to leave it in the circuit.
  \end{remark}
-
+\section*{Acknowledgements}
+We thank Fridel Ziegelmayer for finding an error in a prevoius version of this protocol - where the public inputs $\PI_i$ were not inputs to the \blake hash.
  \bibliographystyle{alpha}
 \bibliography{References}
+
 \end{document}
  
